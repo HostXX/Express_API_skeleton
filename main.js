@@ -7,10 +7,12 @@ const port = process.env.PORT || 5000;
 
 // impoting db conection instance
 
-require('./src/apis/database/databaseConection')
+const db = require('./src/apis/database/databaseConection')
 
-app.listen(port, () => {
-  
+db.then(()=>{
+  app.listen(port, () => {
   console.log(`Listening: http://localhost:${port}`);
-  
 });
+  })
+
+
